@@ -1,6 +1,6 @@
 parametrosCompilacao=-Wall -std=c99 -lm
-arquivos=jogoDaVida.o
-all: jogoDaVida
+arquivos=jogoDaVida.o aux.o
+all: jogoDaVida aux.o
 
 jogoDaVida: $(arquivos)
 	gcc -o jogoDaVida $(arquivos) $(parametrosCompilacao)
