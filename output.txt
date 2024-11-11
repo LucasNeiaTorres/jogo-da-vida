@@ -1,0 +1,787 @@
+Estado:
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+
+Estado:
+0 1 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+
+Estado:
+0 1 1 1 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 1 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 1 0 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+
+Estado:
+0 1 1 0 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 1 0 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 1 0 1 0 
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 1 1 0 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 1 0 1 0 
+0 0 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 1 1 0 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+Estado:
+0 1 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 1 0 0 0 
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 1 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 1 0 0 0 
+0 0 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 1 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+Estado:
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 0 1 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+
+Estado:
+0 1 0 1 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+
+Estado:
+0 1 0 1 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 0 1 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 0 1 1 0 
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 1 0 1 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 0 1 1 0 
+0 0 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 1 0 1 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+Estado:
+0 1 0 1 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 0 1 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 0 1 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 0 1 0 0 
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 1 0 1 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 0 1 0 0 
+0 0 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 1 0 1 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+Estado:
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 0 0 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+
+Estado:
+0 1 0 0 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 0 0 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 0 0 1 0 
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+
+Estado:
+0 1 0 0 1 0 
+0 1 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 1 0 0 1 0 
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+Estado:
+0 1 0 0 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 0 0 1 0 
+0 0 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 1 0 0 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+Estado:
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 0 0 0 0 
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+
+Estado:
+0 1 0 0 0 0 
+0 1 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 1 0 0 0 0 
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+Estado:
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 1 0 0 0 0 
+0 0 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+Estado:
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+
+Estado:
+0 0 1 1 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+
+Estado:
+0 0 1 1 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 0 1 1 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 1 1 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 1 1 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 1 1 0 0 
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 0 1 1 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 1 1 0 0 
+0 0 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 0 1 1 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+Estado:
+0 0 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 1 0 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+
+Estado:
+0 0 1 0 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 1 0 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 1 0 1 0 
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+
+Estado:
+0 0 1 0 1 0 
+0 1 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 0 1 0 1 0 
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+Estado:
+0 0 1 0 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 1 0 1 0 
+0 0 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 0 1 0 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+Estado:
+0 0 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 1 0 0 0 
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+
+Estado:
+0 0 1 0 0 0 
+0 1 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 0 1 0 0 0 
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+Estado:
+0 0 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 1 0 0 0 
+0 0 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 0 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+Estado:
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 0 1 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+
+Estado:
+0 0 0 1 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+
+Estado:
+0 0 0 1 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 0 1 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 0 1 1 0 
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+
+Estado:
+0 0 0 1 1 0 
+0 1 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 0 0 1 1 0 
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+Estado:
+0 0 0 1 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 0 1 1 0 
+0 0 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 0 0 1 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+Estado:
+0 0 0 1 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 0 1 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 0 1 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 0 1 0 0 
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+
+Estado:
+0 0 0 1 0 0 
+0 1 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 0 0 1 0 0 
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+Estado:
+0 0 0 1 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 0 1 0 0 
+0 0 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 0 0 1 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+Estado:
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 0 0 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+
+Estado:
+0 0 0 0 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 0 0 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 0 0 1 0 
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+
+Estado:
+0 0 0 0 1 0 
+0 1 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 0 0 0 1 0 
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+Estado:
+0 0 0 0 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 0 0 1 0 
+0 0 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 0 0 0 1 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+Estado:
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 0 0 0 0 
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+
+Estado:
+0 0 0 0 0 0 
+0 1 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 0 0 0 0 0 
+0 1 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+Estado:
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 1
+Estado:
+0 0 0 0 0 0 
+0 0 1 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+
+Estado:
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+ehEstadoPossivel: 0
+Nos explorados: 75
