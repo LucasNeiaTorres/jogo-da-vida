@@ -98,9 +98,7 @@ int ehEstadoPossivel(uint8_t **estado_atual, uint8_t **prox_estado, int m, int n
     int n_superior_esquerdo = nAtual-1;
     int m_superior_esquerdo = mAtual-1;
     
-    if(nAtual-1 < 0)
-        return 1;
-    if(mAtual-1 < 0)
+    if(nAtual-1 < 0 || mAtual-1 < 0)
         return 1;
 
     int qtde_vizinhos = qtdeVizinhosVivos(estado_atual, m, n, m_superior_esquerdo, n_superior_esquerdo);
@@ -151,14 +149,42 @@ int ehEstadoPossivel(uint8_t **estado_atual, uint8_t **prox_estado, int m, int n
     return 1;
 }
 
-void backtracking(uint8_t **estado_atual, uint8_t **prox_estado, int m, int n, int mAtual, int nAtual) {
+// funcao chamada quando adiciona uma celula viva
+// atualiza a quantidade de vizinhos vivos de todas as celulas vizinhas da celula adicionada
+void aumentaVizinhosVivos(uint8_t **qtde_vizinhos, int m, int n, int mAtual, int nAtual) {
+    int inicio_m = mAtual-1;
+    int inicio_n = nAtual-1;
+    int fim_m = mAtual+1;
+    int fim_n = nAtual+1;
+
+    if(mAtual-1 < 0)
+        inicio_m = 0;
+    if(nAtual-1 < 0) 
+        inicio_n = 0;
+    if(nAtual+1 >= n)
+        fim_n = nAtual;
+    if(mAtual+1 >= m)
+        fim_m = mAtual;
+
+
+    for(int i = inicio_m; i <= fim_m; i++) {
+        for(int j = inicio_n; j <= fim_n; j++) {
+            if(i == mAtual && j == nAtual) // celula adicionada
+                continue;
+            qtde_vizinhos[i][j]++;
+            printf("Atualizando o valor da %d %d: %hhd\n", i, j, qtde_vizinhos[i][j]);
+        }
+    }
+
+}
+
+void backtracking(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizinhos, int m, int n, int mAtual, int nAtual) {
     nosExplorados++;
     if (mAtual == m) {
         printf("\nResultado:\n");
         print_tabuleiro(estado_atual, m, n);
         return;
     }
-    int qtde_vizinhos = qtdeVizinhosVivos(prox_estado, m, n, mAtual, nAtual);
 
     int prox_m = mAtual;
     int prox_n = nAtual;
@@ -169,28 +195,44 @@ void backtracking(uint8_t **estado_atual, uint8_t **prox_estado, int m, int n, i
         prox_n++;
     }
 
+    int qtde_vizinhos_atual = qtdeVizinhosVivos(prox_estado, m, n, mAtual, nAtual);
+
+    // TODO: faz cópia da matriz de vizinhos vivos?
+
     // para minimizar a quantidade de células vivas - poda
-    // e se for vivo mas sem vizinhos vivos?
-    if((qtde_vizinhos == 0) && (prox_estado[mAtual][nAtual] == 0)) {
+    if((qtde_vizinhos_atual == 0) && (prox_estado[mAtual][nAtual] == 0)) {
         estado_atual[mAtual][nAtual] = 0;
+
         printf("Estado:\n");
         print_tabuleiro(estado_atual, m, n);
         printf("ehEstadoPossivel: %d\n", ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual));
+
         if(ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual))
-            backtracking(estado_atual, prox_estado, m, n, prox_m, prox_n);
+            backtracking(estado_atual, prox_estado, qtde_vizinhos, m, n, prox_m, prox_n);
     } else {
-        estado_atual[mAtual][nAtual] = 1;
-        printf("Estado:\n");
-        print_tabuleiro(estado_atual, m, n);
-        printf("ehEstadoPossivel: %d\n\n", ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual));
-        if(ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual))
-            backtracking(estado_atual, prox_estado, m, n, prox_m, prox_n);
         estado_atual[mAtual][nAtual] = 0;
+
         printf("Estado:\n");
         print_tabuleiro(estado_atual, m, n);
         printf("ehEstadoPossivel: %d\n", ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual));
+
         if(ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual))
-            backtracking(estado_atual, prox_estado, m, n, prox_m, prox_n);
+            backtracking(estado_atual, prox_estado, qtde_vizinhos, m, n, prox_m, prox_n);
+
+        estado_atual[mAtual][nAtual] = 1;
+
+        printf("Estado:\n");
+        print_tabuleiro(estado_atual, m, n);
+        printf("ehEstadoPossivel: %d\n", ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual));
+
+
+        if(ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual)) {
+            aumentaVizinhosVivos(qtde_vizinhos, m, n, mAtual, nAtual);
+            printf("Qtde vizinhos vivos:\n");
+            print_tabuleiro(qtde_vizinhos, m, n);
+            printf("\n\n");
+            backtracking(estado_atual, prox_estado, qtde_vizinhos, m, n, prox_m, prox_n);
+        }
     }
 }
 
@@ -202,10 +244,16 @@ int main(int argc, char *argv[]) {
     read_tabuleiro(tabuleiro, linhas, colunas);
 
     uint8_t **tabuleiro_resultado = alocaMatriz(linhas, colunas);
+
+    uint8_t **qtde_vizinhos = (uint8_t **)calloc(linhas, sizeof(uint8_t *));
+    for (uint8_t i = 0; i < linhas; i++) 
+        qtde_vizinhos[i] = (uint8_t *)calloc(colunas, sizeof(uint8_t));
     
-    backtracking(tabuleiro_resultado, tabuleiro, linhas, colunas, 0, 0);
+    backtracking(tabuleiro_resultado, tabuleiro, qtde_vizinhos, linhas, colunas, 0, 0);
     
     printf("Nos explorados: %d\n", nosExplorados);
     destroy_tabuleiro(tabuleiro, linhas);
+    destroy_tabuleiro(tabuleiro_resultado, linhas);
+    destroy_tabuleiro(qtde_vizinhos, linhas);
     return 0;
 }
