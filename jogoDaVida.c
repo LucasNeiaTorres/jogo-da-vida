@@ -175,16 +175,30 @@ void aumentaVizinhosVivos(uint8_t **qtde_vizinhos, int m, int n, int mAtual, int
             printf("Atualizando o valor da %d %d: %hhd\n", i, j, qtde_vizinhos[i][j]);
         }
     }
-
 }
 
-void backtracking(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizinhos, int m, int n, int mAtual, int nAtual) {
+int num_vivos(uint8_t **tabuleiro, int m, int n) {
+    int vivos = 0;
+    for (int i = 0; i < m; i++) 
+        for (int j = 0; j < n; j++) 
+            if (tabuleiro[i][j] == 1) 
+                vivos++;
+    return vivos;
+}
+
+void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizinhos, int m, int n, int mAtual, int nAtual) {
     nosExplorados++;
     if (mAtual == m) {
         printf("\nResultado:\n");
         print_tabuleiro(estado_atual, m, n);
+        // printf("Vizinhos:\n");
+        // print_tabuleiro(qtde_vizinhos, m, n);
+        printf("Vivos: %d\n", num_vivos(estado_atual, m, n));
+        printf("\n\n");
         return;
     }
+    // TODO: armazenar melhor resultado de vivos e se or maior, podar
+    // Tem resultado errado ainda
 
     int prox_m = mAtual;
     int prox_n = nAtual;
@@ -197,7 +211,8 @@ void backtracking(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_
 
     int qtde_vizinhos_atual = qtdeVizinhosVivos(prox_estado, m, n, mAtual, nAtual);
 
-    // TODO: faz cópia da matriz de vizinhos vivos?
+    uint8_t **vizinhosTemp = alocaMatriz(m, n);
+    copiarMatriz(qtde_vizinhos, vizinhosTemp, m, n);
 
     // para minimizar a quantidade de células vivas - poda
     if((qtde_vizinhos_atual == 0) && (prox_estado[mAtual][nAtual] == 0)) {
@@ -207,8 +222,10 @@ void backtracking(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_
         print_tabuleiro(estado_atual, m, n);
         printf("ehEstadoPossivel: %d\n", ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual));
 
-        if(ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual))
-            backtracking(estado_atual, prox_estado, qtde_vizinhos, m, n, prox_m, prox_n);
+        if(ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual)) {
+            progride(estado_atual, prox_estado, vizinhosTemp, m, n, prox_m, prox_n);
+            copiarMatriz(qtde_vizinhos, vizinhosTemp, m, n);
+        }
     } else {
         estado_atual[mAtual][nAtual] = 0;
 
@@ -216,8 +233,10 @@ void backtracking(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_
         print_tabuleiro(estado_atual, m, n);
         printf("ehEstadoPossivel: %d\n", ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual));
 
-        if(ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual))
-            backtracking(estado_atual, prox_estado, qtde_vizinhos, m, n, prox_m, prox_n);
+        if(ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual)) {
+            progride(estado_atual, prox_estado, vizinhosTemp, m, n, prox_m, prox_n);
+            copiarMatriz(qtde_vizinhos, vizinhosTemp, m, n);
+        }
 
         estado_atual[mAtual][nAtual] = 1;
 
@@ -231,7 +250,9 @@ void backtracking(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_
             printf("Qtde vizinhos vivos:\n");
             print_tabuleiro(qtde_vizinhos, m, n);
             printf("\n\n");
-            backtracking(estado_atual, prox_estado, qtde_vizinhos, m, n, prox_m, prox_n);
+            copiarMatriz(qtde_vizinhos, vizinhosTemp, m, n);
+            progride(estado_atual, prox_estado, vizinhosTemp, m, n, prox_m, prox_n);
+            copiarMatriz(qtde_vizinhos, vizinhosTemp, m, n);
         }
     }
 }
@@ -249,7 +270,7 @@ int main(int argc, char *argv[]) {
     for (uint8_t i = 0; i < linhas; i++) 
         qtde_vizinhos[i] = (uint8_t *)calloc(colunas, sizeof(uint8_t));
     
-    backtracking(tabuleiro_resultado, tabuleiro, qtde_vizinhos, linhas, colunas, 0, 0);
+    progride(tabuleiro_resultado, tabuleiro, qtde_vizinhos, linhas, colunas, 0, 0);
     
     printf("Nos explorados: %d\n", nosExplorados);
     destroy_tabuleiro(tabuleiro, linhas);

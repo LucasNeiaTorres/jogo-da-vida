@@ -24,6 +24,14 @@ void print_tabuleiro(uint8_t **tabuleiro, int m, int n) {
     }
 }
 
+void copiarMatriz(uint8_t **origem, uint8_t **destino, int m, int n) {
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            destino[i][j] = origem[i][j];
+        }
+    }
+}
+
 void destroy_tabuleiro(uint8_t **tabuleiro, int m) {
     for (int i = 0; i < m; i++) 
         free(tabuleiro[i]);

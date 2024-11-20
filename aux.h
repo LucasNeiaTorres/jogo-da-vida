@@ -11,6 +11,8 @@ void read_tabuleiro(uint8_t **tabuleiro, int m, int n);
 
 void print_tabuleiro(uint8_t **tabuleiro, int m, int n);
 
+void copiarMatriz(uint8_t **origem, uint8_t **destino, int m, int n);
+
 void destroy_tabuleiro(uint8_t **tabuleiro, int m);
 
 #endif
