@@ -256,6 +256,8 @@ void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizi
             copiarMatriz(qtde_vizinhos, vizinhosTemp, m, n);
         }
     }
+
+    destroy_tabuleiro(vizinhosTemp, m);
 }
 
 int main(int argc, char *argv[]) {
