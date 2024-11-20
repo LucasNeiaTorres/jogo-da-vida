@@ -199,6 +199,7 @@ void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizi
     }
     // TODO: armazenar melhor resultado de vivos e se or maior, podar
     // Tem resultado errado ainda
+    // verificar se é possível retirar umas copias de matriz
 
     int prox_m = mAtual;
     int prox_n = nAtual;
