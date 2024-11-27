@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include "aux.h"
 
-#define INT_MAX 102
+#define INT_MAX 625
 
 uint8_t **melhor_resultado = NULL;
 int menor_qtde_vivos = INT_MAX;
@@ -215,15 +215,13 @@ int num_vivos(uint8_t **tabuleiro, int m, int n) {
     return vivos;
 }
 
-void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizinhos, int m, int n, int mAtual, int nAtual) {
+void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizinhos, int m, int n, int mAtual, int nAtual, int vivos_atual) {
     nosExplorados++;
 
     // armazena nessa variavel global
-    // TODO - ver o tamanho de 'menor_qtde_vivos' variavel global
-    if(mAtual == m) {
-        int vivos = num_vivos(estado_atual, m, n);
-        if(vivos < menor_qtde_vivos){
-            menor_qtde_vivos = vivos;
+    if(mAtual == m){
+        if(vivos_atual < menor_qtde_vivos){
+            menor_qtde_vivos = vivos_atual;
 
             for(int i = 0; i < m; i++){
                 for(int j = 0; j < n; j++){
@@ -238,17 +236,23 @@ void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizi
     int prox_m = (nAtual == n-1) ? mAtual + 1 : mAtual;
     int prox_n = (nAtual == n-1) ? 0 : nAtual + 1;
 
+    // PODA - se passar o numero de vivos do melhor local nem tenta mais 
+    // essa poda melhorou 87% a busca -> 24k para 3k de nós
+    if (vivos_atual >= menor_qtde_vivos) {
+        return;
+    }
+
     // verificacao do caso de ser morta
     estado_atual[mAtual][nAtual] = 0;
     if (ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual)) {
-        progride(estado_atual, prox_estado, qtde_vizinhos, m, n, prox_m, prox_n);
+        progride(estado_atual, prox_estado, qtde_vizinhos, m, n, prox_m, prox_n, vivos_atual);
     }
 
     // verificacao caso ser viva
     estado_atual[mAtual][nAtual] = 1;
     aumentaVizinhosVivos(qtde_vizinhos, m, n, mAtual, nAtual);
     if (ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual)) {
-        progride(estado_atual, prox_estado, qtde_vizinhos, m, n, prox_m, prox_n);
+        progride(estado_atual, prox_estado, qtde_vizinhos, m, n, prox_m, prox_n, vivos_atual + 1);
     }
 
     // diminui numero de vizinho da celula q morreu
@@ -346,7 +350,7 @@ int main(int argc, char *argv[]) {
     for (uint8_t i = 0; i < linhas; i++) 
         qtde_vizinhos[i] = (uint8_t *)calloc(colunas, sizeof(uint8_t));
     
-    progride(tabuleiro_resultado, tabuleiro, qtde_vizinhos, linhas, colunas, 0, 0);
+    progride(tabuleiro_resultado, tabuleiro, qtde_vizinhos, linhas, colunas, 0, 0, 0);
     
     printf("\nMelhor Resultado:\n");
     print_tabuleiro(melhor_resultado, linhas, colunas);
