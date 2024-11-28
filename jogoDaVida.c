@@ -102,7 +102,6 @@ int ehEstadoPossivel(uint8_t **estado_atual, uint8_t **prox_estado, int m, int n
     int n_superior_esquerdo = nAtual-1;
     int m_superior_esquerdo = mAtual-1;
     
-    // TODO - pq so ve a borda superior e a esquerda?
     if(nAtual-1 < 0 || mAtual-1 < 0)
         return 1;
 
@@ -118,39 +117,7 @@ int ehEstadoPossivel(uint8_t **estado_atual, uint8_t **prox_estado, int m, int n
         if(qtde_vizinhos == 2 && estado_atual[m_superior_esquerdo][n_superior_esquerdo] == 1) 
             return 0; // nao pode permanecer viva
     }
-    
 
-    // int inicio_m = mAtual-1;
-    // int inicio_n = nAtual-1;
-    // int fim_m = mAtual;
-    // int fim_n = nAtual+1;
-
-    // if(mAtual-1 < 0)
-    //     inicio_m = 0;
-    // if(nAtual-1 < 0) 
-    //     inicio_n = 0;
-    // if(nAtual+1 > n)
-    //     fim_n = nAtual;
-
-    // for(int i = inicio_m; i <= mAtual; i++) {
-    //     for(int j = inicio_n; j <= nAtual+1; j++) {
-    //         if(i == mAtual && j == nAtual+1) // celula nao preenchida
-    //             return 1;
-
-    //         int qtde_vizinhos = qtdeVizinhosVivos(estado_atual, m, n, i, j);
-    //         if(prox_estado[i][j] == 1) {
-    //             if ((qtde_vizinhos == 2) && (estado_atual[i][j] != 1) )
-    //                 return 0;
-    //             if(qtde_vizinhos < 2 || qtde_vizinhos > 3) 
-    //                 return 0;
-    //         } else {
-    //             if(qtde_vizinhos == 3) 
-    //                 return 0;
-    //             if(qtde_vizinhos == 2 && estado_atual[i][j] == 1) 
-    //                 return 0;
-    //         }
-    //     }
-    // }
     return 1;
 }
 
@@ -239,6 +206,13 @@ void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizi
     // PODA - se passar o numero de vivos do melhor local nem tenta mais 
     // essa poda melhorou 87% a busca -> 24k para 3k de nós
     if (vivos_atual >= menor_qtde_vivos) {
+        return;
+    }
+    
+    // PODA - Se a celula ta morta no prox estado e nao tem vizinhos vivos nao precisa testar
+    if (prox_estado[mAtual][nAtual] == 0 && qtde_vizinhos[mAtual][nAtual] == 0) {
+        estado_atual[mAtual][nAtual] = 0;
+        progride(estado_atual, prox_estado, qtde_vizinhos, m, n, prox_m, prox_n, vivos_atual);
         return;
     }
 
