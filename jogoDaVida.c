@@ -182,35 +182,146 @@ int num_vivos(uint8_t **tabuleiro, int m, int n) {
     return vivos;
 }
 
+int ehVizinhosPossivel(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizinhos, int m, int n, int mAtual, int nAtual) {
+    int inicio_m = mAtual - 1;
+    int inicio_n = nAtual - 1;
+    int fim_m = mAtual;
+    int fim_n = nAtual + 1;
+    
+    // primeira linha do tabuleiro
+    if(mAtual == 0) {
+        return 1;
+    }
+
+    // tratamento de borda
+    if(mAtual - 1 < 0) 
+        inicio_m = 0;
+    if(nAtual - 1 < 0)
+        inicio_n = 0;
+    if(nAtual + 1 >= n)
+        fim_n = nAtual;
+
+    // printf("inicio_m: %d | fim_m: %d\n", inicio_m, fim_m);
+    // percorre todos os vizinhos
+    for(int i = inicio_m; i <= fim_m; i++) {
+        for(int j = inicio_n; j <= fim_n; j++) {
+            // verifica se eh celula nao preenchida
+            if(i == mAtual && j == nAtual+1) 
+                return 1;
+                
+            // printf("mAtual: %d | nAtual+1: %d\n", mAtual, nAtual+1);
+            // printf("i: %d | j: %d\n", i, j);
+            // verifica se eh o bloco finalizado e se o numero de vivos esta correto
+            if((i == inicio_m) && (j == inicio_n)) {
+                if(prox_estado[i][j] == 1) {
+                    if((qtde_vizinhos[i][j] == 2) && (estado_atual[i][j] != 1)) {
+                        // printf("corte 1\n");
+                        // printf("qtde_vizinhos[%d][%d]: %d (==2)\n", i, j, qtde_vizinhos[i][j]);
+                        // printf("estado_atual[%d][%d]: %d (!=1)\n\n", i, j, estado_atual[i][j]);
+                        return 0;
+                    }
+                    if(qtde_vizinhos[i][j] < 2 || qtde_vizinhos[i][j] > 3)  {
+                        // printf("corte 2\n");    
+                        // printf("qtde_vizinhos[%d][%d]: %d (<2 ou >3)\n\n", i, j, qtde_vizinhos[i][j]);
+                        return 0;
+                    }
+                } else {
+                    if(qtde_vizinhos[i][j] == 3) {
+                        // printf("corte 3\n");
+                        // printf("qtde_vizinhos[%d][%d]: %d (==3)\n\n", i, j, qtde_vizinhos[i][j]);
+                        return 0;
+                    }
+                    if(qtde_vizinhos[i][j] == 2 && estado_atual[i][j] == 1) {
+                        // printf("corte 4\n");
+                        // printf("qtde_vizinhos[%d][%d]: %d (==2)\n", i, j, qtde_vizinhos[i][j]);
+                        // printf("estado_atual[%d][%d]: %d (==1)\n\n", i, j, estado_atual[i][j]);
+                        return 0;
+                    }
+                }
+                continue;
+            }
+            // printf("qtde_vizinhos[%d][%d]: %d | prox_estado = %d\n", i, j, qtde_vizinhos[i][j], prox_estado[i][j]);
+            // verifica se ja passou do numero de vivos, se proximo estado for 1
+            if((prox_estado[i][j] == 1) && (qtde_vizinhos[i][j] > 3)) {
+                // printf("corte 5\n");
+                // printf("qtde_vizinhos[%d][%d]: %d (>3)\n\n", i, j, qtde_vizinhos[i][j]);
+                // printf("prox_estado[%d][%d]: %d (==1)\n\n", i, j, prox_estado[i][j]);
+                return 0;
+            }
+        }
+    }
+    // verifica se eh atual
+    return 1;
+}
+
+int ehRespostaValida(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizinhos, int m, int n) {
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++) {
+            if(prox_estado[i][j] == 1) {
+                if((qtde_vizinhos[i][j] == 2) && (estado_atual[i][j] != 1)) 
+                    return 0;
+                if(qtde_vizinhos[i][j] < 2 || qtde_vizinhos[i][j] > 3) 
+                    return 0;
+            } else {
+                if(qtde_vizinhos[i][j] == 3) 
+                    return 0;
+                if(qtde_vizinhos[i][j] == 2 && estado_atual[i][j] == 1) 
+                    return 0;
+            }
+        }
+    }
+
+    return 1;
+}
+
 void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizinhos, int m, int n, int mAtual, int nAtual, int vivos_atual) {
     nosExplorados++;
 
-    // armazena nessa variavel global
-    if(mAtual == m){
-        if(vivos_atual < menor_qtde_vivos){
-            menor_qtde_vivos = vivos_atual;
-
-            for(int i = 0; i < m; i++){
-                for(int j = 0; j < n; j++){
-                    melhor_resultado[i][j] = estado_atual[i][j];
-                }
-            }
-        }
-        return;
-    }
+    // printf("\nEstado Atual: (%d, %d)\n", mAtual, nAtual);
+    // print_tabuleiro(estado_atual, m, n);
+    // printf("ehEstadoPossivel: %d\n", ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual));
+    // printf("EhVizinhosPossivel: %d\n", ehVizinhosPossivel(estado_atual, prox_estado, qtde_vizinhos, m, n, mAtual, nAtual));
+    // printf("Qtde vizinhos vivos:\n");
+    // print_tabuleiro(qtde_vizinhos, m, n);
 
     // pula borda
     int prox_m = (nAtual == n-1) ? mAtual + 1 : mAtual;
     int prox_n = (nAtual == n-1) ? 0 : nAtual + 1;
 
+    // armazena nessa variavel global
+    if(prox_m == m){
+        printf("Resultado: %d\n", ehRespostaValida(estado_atual, prox_estado, qtde_vizinhos, m, n));
+        // if(ehRespostaValida(estado_atual, prox_estado, qtde_vizinhos, m, n) != 0){
+            print_tabuleiro(estado_atual, m, n);
+            printf("Vivos: %d\n", vivos_atual);
+            printf("\n\n");
+            if(vivos_atual < menor_qtde_vivos){
+                menor_qtde_vivos = vivos_atual;
+
+                for(int i = 0; i < m; i++){
+                    for(int j = 0; j < n; j++){
+                        melhor_resultado[i][j] = estado_atual[i][j];
+                    }
+                }
+            }
+        // }
+        return;
+    }
+
+
     // PODA - se passar o numero de vivos do melhor local nem tenta mais 
-    // essa poda melhorou 87% a busca -> 24k para 3k de nós
+    // essa poda melhorou 87% a busca -> 24k para 3k de nós - proporcional a quantidade de celulas mortas sem vizinhos
     if (vivos_atual >= menor_qtde_vivos) {
         return;
     }
     
     // PODA - Se a celula ta morta no prox estado e nao tem vizinhos vivos nao precisa testar
-    if (prox_estado[mAtual][nAtual] == 0 && qtde_vizinhos[mAtual][nAtual] == 0) {
+    if (prox_estado[mAtual][nAtual] == 0 && qtdeVizinhosVivos(prox_estado, m, n, mAtual, nAtual) == 0) {
+        printf("\nEstado Atual: (%d, %d)\n", mAtual, nAtual);
+        print_tabuleiro(estado_atual, m, n);
+        printf("ehEstadoPossivel: %d\n", ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual));
+        printf("EhVizinhosPossivel: %d\n", ehVizinhosPossivel(estado_atual, prox_estado, qtde_vizinhos, m, n, mAtual, nAtual));
+        printf("Qtde vizinhos vivos:\n");
         estado_atual[mAtual][nAtual] = 0;
         progride(estado_atual, prox_estado, qtde_vizinhos, m, n, prox_m, prox_n, vivos_atual);
         return;
@@ -218,97 +329,35 @@ void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizi
 
     // verificacao do caso de ser morta
     estado_atual[mAtual][nAtual] = 0;
-    if (ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual)) {
+    // printf("\nEstado Atual: (%d, %d)\n", mAtual, nAtual);
+    // print_tabuleiro(estado_atual, m, n);
+    // printf("ehEstadoPossivel: %d\n", ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual));
+    // printf("EhVizinhosPossivel: %d\n", ehVizinhosPossivel(estado_atual, prox_estado, qtde_vizinhos, m, n, mAtual, nAtual));
+    // printf("Qtde vizinhos vivos:\n");
+    print_tabuleiro(qtde_vizinhos, m, n);
+    if (ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual) && (ehVizinhosPossivel(estado_atual, prox_estado, qtde_vizinhos, m, n, mAtual, nAtual))) {
         progride(estado_atual, prox_estado, qtde_vizinhos, m, n, prox_m, prox_n, vivos_atual);
     }
 
     // verificacao caso ser viva
     estado_atual[mAtual][nAtual] = 1;
     aumentaVizinhosVivos(qtde_vizinhos, m, n, mAtual, nAtual);
-    if (ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual)) {
+    // printf("\nEstado Atual: (%d, %d)\n", mAtual, nAtual);
+    // print_tabuleiro(estado_atual, m, n);
+    // printf("ehEstadoPossivel: %d\n", ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual));
+    // printf("EhVizinhosPossivel: %d\n", ehVizinhosPossivel(estado_atual, prox_estado, qtde_vizinhos, m, n, mAtual, nAtual));
+    // printf("Qtde vizinhos vivos:\n");
+    print_tabuleiro(qtde_vizinhos, m, n);
+    if (ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual) && (ehVizinhosPossivel(estado_atual, prox_estado, qtde_vizinhos, m, n, mAtual, nAtual))) {
         progride(estado_atual, prox_estado, qtde_vizinhos, m, n, prox_m, prox_n, vivos_atual + 1);
     }
 
+
+    estado_atual[mAtual][nAtual] = 0;
     // diminui numero de vizinho da celula q morreu
     diminuiVizinhosVivos(qtde_vizinhos, m, n, mAtual, nAtual);
 }
 
-// void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizinhos, int m, int n, int mAtual, int nAtual) {
-//     nosExplorados++;
-//     if (mAtual == m) {
-//         printf("\nResultado:\n");
-//         print_tabuleiro(estado_atual, m, n);
-//         // printf("Vizinhos:\n");
-//         // print_tabuleiro(qtde_vizinhos, m, n);
-//         printf("Vivos: %d\n", num_vivos(estado_atual, m, n));
-//         printf("\n\n");
-//         return;
-//     }
-//     // TODO: armazenar melhor resultado de vivos e se or maior, podar
-//     // Tem resultado errado ainda
-//     // verificar se é possível retirar umas copias de matriz
-
-//     int prox_m = mAtual;
-//     int prox_n = nAtual;
-
-//     // verifica se 'nAtual' (colunaSendoVerificada) eh igual a ultima coluna | tratamento de borda
-//     if (nAtual == n-1) {
-//         prox_n = 0;
-//         prox_m++;
-//     } else {
-//         prox_n++;
-//     }
-
-//     int qtde_vizinhos_vivos_prox = qtdeVizinhosVivos(prox_estado, m, n, mAtual, nAtual);
-
-//     uint8_t **vizinhosTemp = alocaMatriz(m, n);
-//     copiarMatriz(qtde_vizinhos, vizinhosTemp, m, n);
-
-//     // para minimizar a quantidade de células vivas - poda
-//     if((qtde_vizinhos_vivos_prox == 0) && (prox_estado[mAtual][nAtual] == 0)) {
-//         // era um estado morto sem vizinhos, entao no passado era morto
-//         estado_atual[mAtual][nAtual] = 0;
-
-//         // printf("Estado:\n");
-//         // print_tabuleiro(estado_atual, m, n);
-//         // printf("ehEstadoPossivel: %d\n", ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual));
-
-//         if(ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual)) {
-//             progride(estado_atual, prox_estado, vizinhosTemp, m, n, prox_m, prox_n);
-//             copiarMatriz(qtde_vizinhos, vizinhosTemp, m, n);
-//         }
-//     } else {
-//         estado_atual[mAtual][nAtual] = 0;
-
-//         printf("Estado:\n");
-//         print_tabuleiro(estado_atual, m, n);
-//         printf("ehEstadoPossivel: %d\n", ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual));
-
-//         if(ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual)) {
-//             progride(estado_atual, prox_estado, vizinhosTemp, m, n, prox_m, prox_n);
-//             copiarMatriz(qtde_vizinhos, vizinhosTemp, m, n);
-//         }
-
-//         estado_atual[mAtual][nAtual] = 1;
-
-//         printf("Estado:\n");
-//         print_tabuleiro(estado_atual, m, n);
-//         printf("ehEstadoPossivel: %d\n", ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual));
-
-
-//         if(ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual)) {
-//             aumentaVizinhosVivos(qtde_vizinhos, m, n, mAtual, nAtual);
-//             printf("Qtde vizinhos vivos:\n");
-//             print_tabuleiro(qtde_vizinhos, m, n);
-//             printf("\n\n");
-//             copiarMatriz(qtde_vizinhos, vizinhosTemp, m, n);
-//             progride(estado_atual, prox_estado, vizinhosTemp, m, n, prox_m, prox_n);
-//             copiarMatriz(qtde_vizinhos, vizinhosTemp, m, n);
-//         }
-//     }
-
-//     destroy_tabuleiro(vizinhosTemp, m);
-// }
 
 int main(int argc, char *argv[]) {
     int linhas, colunas;
@@ -324,6 +373,8 @@ int main(int argc, char *argv[]) {
     for (uint8_t i = 0; i < linhas; i++) 
         qtde_vizinhos[i] = (uint8_t *)calloc(colunas, sizeof(uint8_t));
     
+    menor_qtde_vivos = linhas * colunas;
+
     progride(tabuleiro_resultado, tabuleiro, qtde_vizinhos, linhas, colunas, 0, 0, 0);
     
     printf("\nMelhor Resultado:\n");
