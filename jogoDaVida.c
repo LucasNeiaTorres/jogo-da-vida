@@ -9,6 +9,7 @@
 uint8_t **melhor_resultado = NULL;
 int menor_qtde_vivos = INT_MAX;
 int nosExplorados = 0;
+int qtde_vivos_prox;
 
 uint8_t** minTabuleiro(uint8_t** tabuleiroA, uint8_t** tabuleiroB, int m, int n) {
     int vivosA = 0;
@@ -248,6 +249,41 @@ int ehVizinhosPossivel(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **
                 // printf("prox_estado[%d][%d]: %d (==1)\n\n", i, j, prox_estado[i][j]);
                 return 0;
             }
+            // verifica, caso proximo seja 1, se o numero de vivos eh menor que 2 ou 3 e falta menos de 2 ou 3 celulas pra completar o bloco dele
+            // calcula quantas celulas falta pra completar o bloco considerando o mAtual e o nAtual
+            int celulas_faltantes = 0;
+
+            // calcula celulas faltantes da celula[i][j]
+            // exemplo:
+            // 0 0 0 0 0
+            // 0 0 .0. 1 0 <- celula[i][j] entre pontos
+            // 0 0 (0) x x <- celula[mAtual][nAtual] entre parenteses e x ainda não definido
+            // sabendo que o proximo estado de celula[i][j] = 1
+            // celula[mAtual][nAtual] tem que ser 1 pois celulas_faltantes = 1 e qtde_vizinhos[i][j] = 1
+            // logo, celula[mAtual][nAtual] = 1
+
+            // formula eh: abs(l-lA)x3 + abs(c-cA)
+            // dado que lA = mAtual, cA = nAtual
+            // l,c eh coordenada da ultima celula do bloco (i+1, j+1)
+            // e para bordas e cantos?
+            // ehBorda esquerda (mAtual, NAtual): nL = 2
+            // ehBorda cima (mAtual, NAtual): nao verifica
+            // ehBorda direita (mAtual, NAtual): xxxxxxxxxxxxx
+            if() {
+
+            }
+
+            if(prox_estado[i][j] == 1) {
+                if(estado_atual[i][j] == 0) {
+                    if((celulas_faltantes + qtde_vizinhos[i][j]) < 3) {
+                        return 0;
+                    }
+                } else {
+                    if((celulas_faltantes + qtde_vizinhos[i][j]) < 2) {
+                        return 0;
+                    }
+                }
+            }
         }
     }
     // verifica se eh atual
@@ -274,12 +310,20 @@ int ehRespostaValida(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qt
     return 1;
 }
 
+int qtde_vivos(uint8_t **tabuleiro, int m, int n) {
+    int vivos = 0;
+    for (int i = 0; i < m; i++) 
+        for (int j = 0; j < n; j++) 
+            if (tabuleiro[i][j] == 1) 
+                vivos++;
+    return vivos;
+}
+
 void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizinhos, int m, int n, int mAtual, int nAtual, int vivos_atual) {
     nosExplorados++;
 
-    if(nosExplorados >= 10000000) {
+    if(nosExplorados >= 1000000000) {
         return;
-
     }
 
     // pula borda
@@ -289,6 +333,7 @@ void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizi
     // armazena nessa variavel global
     if(prox_m == m){
         printf("Resultado: %d\n", ehRespostaValida(estado_atual, prox_estado, qtde_vizinhos, m, n));
+        // quando tiver umas poda foda da pra comentar essa linha
         if(ehRespostaValida(estado_atual, prox_estado, qtde_vizinhos, m, n) != 0){
             print_tabuleiro(estado_atual, m, n);
             printf("Vivos: %d\n", vivos_atual);
@@ -313,13 +358,6 @@ void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizi
         return;
     }
 
-    printf("\nEstado Atual: (%d, %d)\n", mAtual, nAtual);
-    print_tabuleiro(estado_atual, m, n);
-    printf("ehEstadoPossivel: %d\n", ehEstadoPossivel(estado_atual, prox_estado, m, n, mAtual, nAtual));
-    printf("EhVizinhosPossivel: %d\n", ehVizinhosPossivel(estado_atual, prox_estado, qtde_vizinhos, m, n, mAtual, nAtual));
-    printf("Qtde vizinhos vivos:\n");
-    print_tabuleiro(qtde_vizinhos, m, n);
-
     
     // PODA - Se a celula ta morta no prox estado e nao tem vizinhos vivos nao precisa testar
     if (prox_estado[mAtual][nAtual] == 0 && qtdeVizinhosVivos(prox_estado, m, n, mAtual, nAtual) == 0) {
@@ -330,7 +368,7 @@ void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizi
         // printf("Qtde vizinhos vivos:\n");
         // print_tabuleiro(qtde_vizinhos, m, n);
         // estado_atual[mAtual][nAtual] = 0;
-        printf("Poda 1\n");
+        // printf("Poda 1\n");
         progride(estado_atual, prox_estado, qtde_vizinhos, m, n, prox_m, prox_n, vivos_atual);
         return;
     }
@@ -338,7 +376,7 @@ void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizi
     // verificacao do caso de ser morta
     estado_atual[mAtual][nAtual] = 0;
     if ((ehVizinhosPossivel(estado_atual, prox_estado, qtde_vizinhos, m, n, mAtual, nAtual))) {
-        printf("Poda 2\n");
+        // printf("Poda 2\n");
         progride(estado_atual, prox_estado, qtde_vizinhos, m, n, prox_m, prox_n, vivos_atual);
     }
 
@@ -346,7 +384,7 @@ void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizi
     estado_atual[mAtual][nAtual] = 1;
     aumentaVizinhosVivos(qtde_vizinhos, m, n, mAtual, nAtual);
     if ((ehVizinhosPossivel(estado_atual, prox_estado, qtde_vizinhos, m, n, mAtual, nAtual))) {
-        printf("Poda 3\n");
+        // printf("Poda 3\n");
         progride(estado_atual, prox_estado, qtde_vizinhos, m, n, prox_m, prox_n, vivos_atual + 1);
     }
 
@@ -364,6 +402,7 @@ int main(int argc, char *argv[]) {
     uint8_t **tabuleiro = alocaMatriz(linhas, colunas);
     read_tabuleiro(tabuleiro, linhas, colunas);
 
+
     uint8_t **tabuleiro_resultado = alocaMatriz(linhas, colunas);
     melhor_resultado = alocaMatriz(linhas, colunas);
 
@@ -371,7 +410,9 @@ int main(int argc, char *argv[]) {
     for (uint8_t i = 0; i < linhas; i++) 
         qtde_vizinhos[i] = (uint8_t *)calloc(colunas, sizeof(uint8_t));
     
-    menor_qtde_vivos = linhas * colunas;
+    qtde_vivos_prox = qtde_vivos(tabuleiro, linhas, colunas);
+    menor_qtde_vivos = qtde_vivos_prox * 2; // impossível ter mais que 3 vezes a quantidade de vivos - calcular densidade de vivos
+    // menor_qtde_vivos = linhas * colunas;
 
     progride(tabuleiro_resultado, tabuleiro, qtde_vizinhos, linhas, colunas, 0, 0, 0);
     
