@@ -251,7 +251,6 @@ int ehVizinhosPossivel(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **
             }
             // verifica, caso proximo seja 1, se o numero de vivos eh menor que 2 ou 3 e falta menos de 2 ou 3 celulas pra completar o bloco dele
             // calcula quantas celulas falta pra completar o bloco considerando o mAtual e o nAtual
-            int celulas_faltantes = 0;
 
             // calcula celulas faltantes da celula[i][j]
             // exemplo:
@@ -269,21 +268,25 @@ int ehVizinhosPossivel(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **
             // ehBorda esquerda (mAtual, NAtual): nL = 2
             // ehBorda cima (mAtual, NAtual): nao verifica
             // ehBorda direita (mAtual, NAtual): xxxxxxxxxxxxx
-            if() {
+            int celulas_faltantes = 0;
+            // se eh borda esquerda
+            // if(ehBorda(prox_estado, m, n, mAtual, nAtual) == 1) {
+            //     celulas_faltantes = abs(i - mAtual) * 2 + abs(j - nAtual);
+            // } else {
+            //     celulas_faltantes = abs(i - mAtual) * 3 + abs(j - nAtual);
+            // }
 
-            }
-
-            if(prox_estado[i][j] == 1) {
-                if(estado_atual[i][j] == 0) {
-                    if((celulas_faltantes + qtde_vizinhos[i][j]) < 3) {
-                        return 0;
-                    }
-                } else {
-                    if((celulas_faltantes + qtde_vizinhos[i][j]) < 2) {
-                        return 0;
-                    }
-                }
-            }
+            // if(prox_estado[i][j] == 1) {
+            //     if(estado_atual[i][j] == 0) {
+            //         if((celulas_faltantes + qtde_vizinhos[i][j]) < 3) {
+            //             return 0;
+            //         }
+            //     } else {
+            //         if((celulas_faltantes + qtde_vizinhos[i][j]) < 2) {
+            //             return 0;
+            //         }
+            //     }
+            // }
         }
     }
     // verifica se eh atual
@@ -322,7 +325,7 @@ int qtde_vivos(uint8_t **tabuleiro, int m, int n) {
 void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizinhos, int m, int n, int mAtual, int nAtual, int vivos_atual) {
     nosExplorados++;
 
-    if(nosExplorados >= 1000000000) {
+    if(nosExplorados >= 100000) { // faz ele ser proporcional ao tam do tabuleiro
         return;
     }
 
