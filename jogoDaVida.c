@@ -261,32 +261,42 @@ int ehVizinhosPossivel(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **
             // celula[mAtual][nAtual] tem que ser 1 pois celulas_faltantes = 1 e qtde_vizinhos[i][j] = 1
             // logo, celula[mAtual][nAtual] = 1
 
-            // formula eh: abs(l-lA)x3 + abs(c-cA)
+            // formula eh: abs(l-lA)xnL + abs(c-cA)
             // dado que lA = mAtual, cA = nAtual
             // l,c eh coordenada da ultima celula do bloco (i+1, j+1)
-            // e para bordas e cantos?
             // ehBorda esquerda (mAtual, NAtual): nL = 2
-            // ehBorda cima (mAtual, NAtual): nao verifica
-            // ehBorda direita (mAtual, NAtual): xxxxxxxxxxxxx
-            int celulas_faltantes = 0;
-            // se eh borda esquerda
-            // if(ehBorda(prox_estado, m, n, mAtual, nAtual) == 1) {
-            //     celulas_faltantes = abs(i - mAtual) * 2 + abs(j - nAtual);
-            // } else {
-            //     celulas_faltantes = abs(i - mAtual) * 3 + abs(j - nAtual);
-            // }
+            if(prox_estado[i][j] == 1) {
+                int linha_final = i+1;
+                int coluna_final = j+1;
+                int nL = 3;
+                // se for borda direita
+                if(ehBorda(prox_estado, m, n, mAtual, nAtual) == 3) {
+                    linha_final = i+1;
+                    coluna_final = j;
+                    // celulas_faltantes = 0; pensar no celula atual
+                } else if (ehBorda(prox_estado, m, n, mAtual, nAtual) == 4) {
+                    linha_final = i;
+                    coluna_final = j+1;
+                } else if(ehBorda(prox_estado, m, n, mAtual, nAtual) == 1) {
+                    nL = 2;
+                }
 
-            // if(prox_estado[i][j] == 1) {
-            //     if(estado_atual[i][j] == 0) {
-            //         if((celulas_faltantes + qtde_vizinhos[i][j]) < 3) {
-            //             return 0;
-            //         }
-            //     } else {
-            //         if((celulas_faltantes + qtde_vizinhos[i][j]) < 2) {
-            //             return 0;
-            //         }
-            //     }
-            // }
+                int celulas_faltantes = abs(linha_final - mAtual) * nL + abs(coluna_final - nAtual);
+                // printf("[%d][%d] Celulas faltantes: %d\n", i, j, celulas_faltantes);
+                // calcula celulas faltantes da celula[i][j]
+
+                    if(estado_atual[i][j] == 0) {
+                        if((celulas_faltantes + qtde_vizinhos[i][j]) < 3) {
+                            // printf("corte 6\n");
+                            return 0;
+                        }
+                    } else {
+                        if((celulas_faltantes + qtde_vizinhos[i][j]) < 2) {
+                            // printf("corte 6\n");
+                            return 0;
+                        }
+                    }
+            }
         }
     }
     // verifica se eh atual
@@ -325,9 +335,9 @@ int qtde_vivos(uint8_t **tabuleiro, int m, int n) {
 void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizinhos, int m, int n, int mAtual, int nAtual, int vivos_atual) {
     nosExplorados++;
 
-    if(nosExplorados >= 100000) { // faz ele ser proporcional ao tam do tabuleiro
-        return;
-    }
+    // if(nosExplorados >= 100000000000) { // faz ele ser proporcional ao tam do tabuleiro
+    //     return;
+    // }
 
     // pula borda
     int prox_m = (nAtual == n-1) ? mAtual + 1 : mAtual;
@@ -335,7 +345,7 @@ void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizi
 
     // armazena nessa variavel global
     if(prox_m == m){
-        printf("Resultado: %d\n", ehRespostaValida(estado_atual, prox_estado, qtde_vizinhos, m, n));
+        // printf("Resultado: %d\n", ehRespostaValida(estado_atual, prox_estado, qtde_vizinhos, m, n));
         // quando tiver umas poda foda da pra comentar essa linha
         if(ehRespostaValida(estado_atual, prox_estado, qtde_vizinhos, m, n) != 0){
             print_tabuleiro(estado_atual, m, n);
