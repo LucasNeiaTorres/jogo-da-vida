@@ -3,7 +3,6 @@
 #include <time.h>
 #include <stdint.h>
 #include "aux.h"
-
 #define INT_MAX 625
 
 uint8_t **melhor_resultado = NULL;
@@ -347,9 +346,9 @@ int qtde_vivos(uint8_t **tabuleiro, int m, int n) {
 void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizinhos, int m, int n, int mAtual, int nAtual, int vivos_atual) {
     nosExplorados++;
 
-    // if(nosExplorados >= 100000000000) { // faz ele ser proporcional ao tam do tabuleiro
-    //     return;
-    // }
+    if(nosExplorados >= 1000000000) { // faz ele ser proporcional ao tam do tabuleiro
+        return;
+    }
 
     // pula borda
     int prox_m = (nAtual == n-1) ? mAtual + 1 : mAtual;
@@ -443,9 +442,13 @@ int main(int argc, char *argv[]) {
     qtde_vivos_prox = qtde_vivos(tabuleiro, linhas, colunas);
     menor_qtde_vivos = qtde_vivos_prox * 2; // impossível ter mais que 3 vezes a quantidade de vivos - calcular densidade de vivos
     // menor_qtde_vivos = linhas * colunas;
-
+    struct timespec start, end;
+    clock_gettime(CLOCK_REALTIME, &start);
     progride(tabuleiro_resultado, tabuleiro, qtde_vizinhos, linhas, colunas, 0, 0, 0);
+    clock_gettime(CLOCK_REALTIME, &end);
+    printf("Tempo de execução: %lf\n", (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / 1000000000.0);
     
+
     printf("\nMelhor Resultado:\n");
     printf("%d %d\n", linhas, colunas);
     print_tabuleiro(melhor_resultado, linhas, colunas);
