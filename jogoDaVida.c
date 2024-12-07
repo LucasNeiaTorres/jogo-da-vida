@@ -214,7 +214,10 @@ int ehVizinhosPossivel(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **
             // printf("i: %d | j: %d\n", i, j);
             // verifica se eh o bloco finalizado e se o numero de vivos esta correto
             // se for borda direita entao o bloco esta finalizado tambem
-            if(((i == inicio_m) && (j == inicio_n)) || ((ehBorda(prox_estado, m, n, i, j) == 3) && (j == nAtual))) {
+            if(((i == inicio_m) && (j == inicio_n)) 
+            || ((ehBorda(prox_estado, m, n, i, j) == 3) && (j == nAtual))
+            || ((ehBorda(prox_estado, m, n, i, j) == 4))
+            ) {
                 if(prox_estado[i][j] == 1) {
                     if((qtde_vizinhos[i][j] == 2) && (estado_atual[i][j] != 1)) {
                         // printf("corte 1\n");
@@ -308,15 +311,23 @@ int ehRespostaValida(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qt
     for(int i = 0; i < m; i++) {
         for(int j = 0; j < n; j++) {
             if(prox_estado[i][j] == 1) {
-                if((qtde_vizinhos[i][j] == 2) && (estado_atual[i][j] != 1)) 
+                if((qtde_vizinhos[i][j] == 2) && (estado_atual[i][j] != 1)) {
+                    printf("Erro 1 na celula %d %d\n", i, j);
                     return 0;
-                if(qtde_vizinhos[i][j] < 2 || qtde_vizinhos[i][j] > 3) 
+                }
+                if(qtde_vizinhos[i][j] < 2 || qtde_vizinhos[i][j] > 3) {
+                    printf("Erro 2 na celula %d %d\n", i, j);
                     return 0;
+                }
             } else {
-                if(qtde_vizinhos[i][j] == 3) 
+                if(qtde_vizinhos[i][j] == 3) {
+                    printf("Erro 3 na celula %d %d\n", i, j);
                     return 0;
-                if(qtde_vizinhos[i][j] == 2 && estado_atual[i][j] == 1) 
+                }
+                if(qtde_vizinhos[i][j] == 2 && estado_atual[i][j] == 1) {
+                    printf("Erro 4 na celula %d %d\n", i, j);
                     return 0;
+                }
             }
         }
     }
@@ -377,7 +388,9 @@ void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizi
     if (prox_estado[mAtual][nAtual] == 0 && qtdeVizinhosVivos(prox_estado, m, n, mAtual, nAtual) == 0) {
         estado_atual[mAtual][nAtual] = 0;
         // printf("Poda 1\n");
-        progride(estado_atual, prox_estado, qtde_vizinhos, m, n, prox_m, prox_n, vivos_atual);
+        if(ehVizinhosPossivel(estado_atual, prox_estado, qtde_vizinhos, m, n, mAtual, nAtual) == 1) {
+            progride(estado_atual, prox_estado, qtde_vizinhos, m, n, prox_m, prox_n, vivos_atual);
+        }
         return;
     }
 
