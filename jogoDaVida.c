@@ -2,8 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdint.h>
+#include <stdbool.h>
 #include "aux.h"
 #define INT_MAX 625
+#define TAM_BLOCO 5
 
 uint8_t **melhor_resultado = NULL;
 int menor_qtde_vivos = INT_MAX;
@@ -263,16 +265,41 @@ int qtdeVivosEstadoDado(uint8_t **tabuleiro, int m, int n) {
     return vivos;
 }
 
+
+// a probabilidade da quantidade de vivos ser maior que o menor qtde_vivos proporcionamente a quantidade de celulas faltantes do tabuleiro
+bool heuristicaVivosProporcional(uint8_t **estado_anterior, uint8_t **estado_dado, uint8_t **qtde_vizinhos, int m, int n, int mAtual, int nAtual, int vivos_atual) {
+    int celulas_faltantes = 0;
+    // calcula a probabilidade de ser maior
+    for(int i = mAtual; i < m; i++) {
+        for(int j = nAtual; j < n; j++) {
+            if(estado_dado[i][j] == 1) {
+                if((qtde_vizinhos[i][j] == 2) && (estado_anterior[i][j] != 1)) {
+                    celulas_faltantes++;
+                }
+                if(qtde_vizinhos[i][j] < 2 || qtde_vizinhos[i][j] > 3) {
+                    celulas_faltantes++;
+                }
+            } else {
+                if(qtde_vizinhos[i][j] == 3) {
+                    celulas_faltantes++;
+                }
+                if(qtde_vizinhos[i][j] == 2 && estado_anterior[i][j] == 1) {
+                    celulas_faltantes++;
+                }
+            }
+        }
+    }
+    
+    return (vivos_atual + celulas_faltantes) < menor_qtde_vivos;
+}
+
 void progride(uint8_t **estado_anterior, uint8_t **estado_dado, uint8_t **qtde_vizinhos, int m, int n, int mAtual, int nAtual, int vivos_atual) {
     nosExplorados++;
 
-    // para casos 23x23 ou maiores
-    if(m*n > 600){
-        if(nosExplorados >= 500000000) { // faz ele ser proporcional ao tam do tabuleiro
-            return;
-        }
+    if(nosExplorados >= 1000000000) { // faz ele ser proporcional ao tam do tabuleiro
+        return;
     }
-
+    
     // pula borda
     int prox_m = (nAtual == n-1) ? mAtual + 1 : mAtual;
     int prox_n = (nAtual == n-1) ? 0 : nAtual + 1;
@@ -283,7 +310,6 @@ void progride(uint8_t **estado_anterior, uint8_t **estado_dado, uint8_t **qtde_v
         printf("Vivos: %d\n", vivos_atual);
         print_tabuleiro(estado_anterior, m, n);
         printf("\n\n");
-        // quando tiver umas poda foda da pra comentar essa linha
         if(vivos_atual < menor_qtde_vivos){
             if(ehRespostaValida(estado_anterior, estado_dado, qtde_vizinhos, m, n) != 0){
                 menor_qtde_vivos = vivos_atual;
@@ -303,6 +329,10 @@ void progride(uint8_t **estado_anterior, uint8_t **estado_dado, uint8_t **qtde_v
         return;
     }
 
+    if(!(heuristicaVivosProporcional(estado_anterior, estado_dado, qtde_vizinhos, m, n, mAtual, nAtual, vivos_atual))) {
+        return;
+    }
+
     // PODA - Se a celula ta morta no estado dado e nao tem vizinhos vivos ela eh morta no anterior
     if (estado_dado[mAtual][nAtual] == 0 && qtdeVizinhosVivos(estado_dado, m, n, mAtual, nAtual) == 0) {
         estado_anterior[mAtual][nAtual] = 0;
@@ -313,16 +343,8 @@ void progride(uint8_t **estado_anterior, uint8_t **estado_dado, uint8_t **qtde_v
         return;
     }
 
+
     int prioridade[2] = {0, 1};
-    // verifica se é melhor comecar verificando com 1 ou com 0
-    if((estado_dado[mAtual][nAtual] == 1 && (qtde_vizinhos[mAtual][nAtual] == 2 || qtde_vizinhos[mAtual][nAtual] == 3)) || 
-       (estado_dado[mAtual][nAtual] == 0 && qtde_vizinhos[mAtual][nAtual] == 3)) {
-        prioridade[0] = 1;
-        prioridade[1] = 0;
-    }else{
-        prioridade[0] = 0;
-        prioridade[1] = 1;
-    }
 
     int vivos = vivos_atual;
 
@@ -335,6 +357,7 @@ void progride(uint8_t **estado_anterior, uint8_t **estado_dado, uint8_t **qtde_v
         }
 
         if (ehVizinhosPossivel(estado_anterior, estado_dado, qtde_vizinhos, m, n, mAtual, nAtual) == 1) {
+            // pula celulas mortas sem vizinhos vivos
             progride(estado_anterior, estado_dado, qtde_vizinhos, m, n, prox_m, prox_n, vivos);
         }
 
@@ -371,6 +394,7 @@ int main(int argc, char *argv[]) {
     clock_gettime(CLOCK_REALTIME, &start);
 
     // chamada  funcao principal
+    // resolver_por_blocos(resultado_estado_anterior, estado_dado, qtde_vizinhos, linhas, colunas);
     progride(resultado_estado_anterior, estado_dado, qtde_vizinhos, linhas, colunas, 0, 0, 0);
     clock_gettime(CLOCK_REALTIME, &end);
     printf("Tempo de execução: %lf\n", (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / 1000000000.0);
