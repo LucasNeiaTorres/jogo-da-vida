@@ -1,787 +1,117 @@
-Estado:
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 0
+Resultado: 1
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 
+0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 
+0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 
+0 0 1 1 1 0 0 1 1 1 0 0 0 0 0 
+0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 
+0 1 1 0 1 0 0 0 0 0 0 0 0 0 0 
+0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 
+0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 
+0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 
+0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Vivos: 32
 
-Estado:
-0 1 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
 
-Estado:
-0 1 1 1 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
 
-Estado:
-0 1 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 1 0 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-
-Estado:
-0 1 1 0 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 1 0 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 1 0 1 0 
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 1 1 0 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 1 0 1 0 
-0 0 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 1 1 0 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-Estado:
-0 1 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 1 0 0 0 
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 1 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 1 0 0 0 
-0 0 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 1 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-Estado:
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 0 1 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-
-Estado:
-0 1 0 1 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-
-Estado:
-0 1 0 1 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 0 1 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 0 1 1 0 
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 1 0 1 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 0 1 1 0 
-0 0 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 1 0 1 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-Estado:
-0 1 0 1 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 0 1 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 0 1 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 0 1 0 0 
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 1 0 1 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 0 1 0 0 
-0 0 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 1 0 1 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-Estado:
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 0 0 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-
-Estado:
-0 1 0 0 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 0 0 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 0 0 1 0 
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-
-Estado:
-0 1 0 0 1 0 
-0 1 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 1 0 0 1 0 
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-Estado:
-0 1 0 0 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 0 0 1 0 
-0 0 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 1 0 0 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-Estado:
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 0 0 0 0 
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-
-Estado:
-0 1 0 0 0 0 
-0 1 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 1 0 0 0 0 
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-Estado:
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 1 0 0 0 0 
-0 0 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-Estado:
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-
-Estado:
-0 0 1 1 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-
-Estado:
-0 0 1 1 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 0 1 1 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 1 1 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 1 1 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 1 1 0 0 
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 0 1 1 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 1 1 0 0 
-0 0 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 0 1 1 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-Estado:
-0 0 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 1 0 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-
-Estado:
-0 0 1 0 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 1 0 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 1 0 1 0 
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-
-Estado:
-0 0 1 0 1 0 
-0 1 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 0 1 0 1 0 
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-Estado:
-0 0 1 0 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 1 0 1 0 
-0 0 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 0 1 0 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-Estado:
-0 0 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 1 0 0 0 
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-
-Estado:
-0 0 1 0 0 0 
-0 1 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 0 1 0 0 0 
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-Estado:
-0 0 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 1 0 0 0 
-0 0 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 0 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-Estado:
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 0 1 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-
-Estado:
-0 0 0 1 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-
-Estado:
-0 0 0 1 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 0 1 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 0 1 1 0 
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-
-Estado:
-0 0 0 1 1 0 
-0 1 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 0 0 1 1 0 
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-Estado:
-0 0 0 1 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 0 1 1 0 
-0 0 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 0 0 1 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-Estado:
-0 0 0 1 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 0 1 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 0 1 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 0 1 0 0 
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-
-Estado:
-0 0 0 1 0 0 
-0 1 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 0 0 1 0 0 
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-Estado:
-0 0 0 1 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 0 1 0 0 
-0 0 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 0 0 1 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-Estado:
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 0 0 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-
-Estado:
-0 0 0 0 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 0 0 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 0 0 1 0 
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-
-Estado:
-0 0 0 0 1 0 
-0 1 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 0 0 0 1 0 
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-Estado:
-0 0 0 0 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 0 0 1 0 
-0 0 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 0 0 0 1 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-Estado:
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 0 0 0 0 
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-
-Estado:
-0 0 0 0 0 0 
-0 1 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 0 0 0 0 0 
-0 1 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-Estado:
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 1
-Estado:
-0 0 0 0 0 0 
-0 0 1 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-
-Estado:
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-0 0 0 0 0 0 
-ehEstadoPossivel: 0
-Nos explorados: 75
+Melhor Resultado:
+15 15
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 
+0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 
+0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 
+0 0 1 1 1 0 0 1 1 1 0 0 0 0 0 
+0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 
+0 1 1 0 1 0 0 0 0 0 0 0 0 0 0 
+0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 
+0 0 0 0 1 0 0 0 1 1 0 0 0 0 0 
+0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 
+0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Quantidade de vivos: 32
+Nos explorados: 59129120

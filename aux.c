@@ -10,7 +10,7 @@ uint8_t **alocaMatriz(int m, int n) {
     return tabuleiro;
 }
 
-void read_tabuleiro(uint8_t **tabuleiro, int m, int n) {
+void le_entrada(uint8_t **tabuleiro, int m, int n) {
     for (int i = 0; i < m; i++) 
         for (int j = 0; j < n; j++) 
             scanf("%hhd", &tabuleiro[i][j]);

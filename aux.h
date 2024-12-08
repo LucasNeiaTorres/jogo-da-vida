@@ -7,7 +7,7 @@
 
 uint8_t** alocaMatriz(int m, int n);
 
-void read_tabuleiro(uint8_t **tabuleiro, int m, int n);
+void le_entrada(uint8_t **tabuleiro, int m, int n);
 
 void print_tabuleiro(uint8_t **tabuleiro, int m, int n);
 
