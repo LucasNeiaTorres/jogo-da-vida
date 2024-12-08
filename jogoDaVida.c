@@ -348,8 +348,10 @@ int qtde_vivos(uint8_t **tabuleiro, int m, int n) {
 void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizinhos, int m, int n, int mAtual, int nAtual, int vivos_atual) {
     nosExplorados++;
 
-    if(nosExplorados >= 1000000000) { // faz ele ser proporcional ao tam do tabuleiro
-        return;
+    if(m*n > 600){
+        if(nosExplorados >= 500000000) { // faz ele ser proporcional ao tam do tabuleiro
+            return;
+        }
     }
 
     // pula borda
@@ -363,8 +365,8 @@ void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizi
         print_tabuleiro(estado_atual, m, n);
         printf("\n\n");
         // quando tiver umas poda foda da pra comentar essa linha
-        if(ehRespostaValida(estado_atual, prox_estado, qtde_vizinhos, m, n) != 0){
-            if(vivos_atual < menor_qtde_vivos){
+        if(vivos_atual < menor_qtde_vivos){
+            if(ehRespostaValida(estado_atual, prox_estado, qtde_vizinhos, m, n) != 0){
                 menor_qtde_vivos = vivos_atual;
 
                 for(int i = 0; i < m; i++){
@@ -393,11 +395,20 @@ void progride(uint8_t **estado_atual, uint8_t **prox_estado, uint8_t **qtde_vizi
     }
     int prioridade[2] = {0, 1};
 
+    // verifica se é melhor comecar verificando com 1 ou com 0
+    if((prox_estado[mAtual][nAtual] == 1 && (qtde_vizinhos[mAtual][nAtual] == 2 || qtde_vizinhos[mAtual][nAtual] == 3)) || 
+       (prox_estado[mAtual][nAtual] == 0 && qtde_vizinhos[mAtual][nAtual] == 3)) {
+        prioridade[0] = 1;
+        prioridade[1] = 0;
+    }else{
+        prioridade[0] = 0;
+        prioridade[1] = 1;
+    }
+
     int vivos = vivos_atual;
 
     // implementa fila de prioridade
     for(int i = 0; i < 2; i++) {
-
         estado_atual[mAtual][nAtual] = prioridade[i];
         // printf("Tabuleiro: %d %d\n", mAtual, nAtual);
         // print_tabuleiro(estado_atual, m, n);
@@ -432,11 +443,11 @@ int main(int argc, char *argv[]) {
     melhor_resultado = alocaMatriz(linhas, colunas);
 
     uint8_t **qtde_vizinhos = (uint8_t **)calloc(linhas, sizeof(uint8_t *));
-    for (uint8_t i = 0; i < linhas; i++) 
+    for(uint8_t i = 0; i < linhas; i++) 
         qtde_vizinhos[i] = (uint8_t *)calloc(colunas, sizeof(uint8_t));
     
     qtde_vivos_prox = qtde_vivos(tabuleiro, linhas, colunas);
-    menor_qtde_vivos = qtde_vivos_prox * 2; // impossível ter mais que 3 vezes a quantidade de vivos - calcular densidade de vivos
+    menor_qtde_vivos = qtde_vivos_prox * 1.5; // impossível ter mais que 3 vezes a quantidade de vivos - calcular densidade de vivos
     // menor_qtde_vivos = linhas * colunas;
     struct timespec start, end;
     clock_gettime(CLOCK_REALTIME, &start);
