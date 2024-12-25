@@ -5,7 +5,6 @@
 #include <stdbool.h>
 #include "aux.h"
 #define INT_MAX 625
-#define TAM_BLOCO 5
 
 uint8_t **melhor_resultado = NULL;
 int menor_qtde_vivos = INT_MAX;
@@ -181,17 +180,14 @@ int ehVizinhosPossivel(uint8_t **estado_anterior, uint8_t **estado_dado, uint8_t
                 }
                 continue;
             }
-            // printf("qtde_vizinhos[%d][%d]: %d | estado_dado = %d\n", i, j, qtde_vizinhos[i][j], estado_dado[i][j]);
-            // verifica se ja passou do numero de vivos, se proximo estado for 1
-            if((estado_dado[i][j] == 1) && (qtde_vizinhos[i][j] > 3)) {
-                // printf("corte 5\n");
-                // printf("qtde_vizinhos[%d][%d]: %d (>3)\n\n", i, j, qtde_vizinhos[i][j]);
-                // printf("estado_dado[%d][%d]: %d (==1)\n\n", i, j, estado_dado[i][j]);
-                return 0;
-            }
             // verifica, caso proximo seja 1, se o numero de vivos eh menor que 2 ou 3 e falta menos de 2 ou 3 celulas pra completar o bloco dele
             // calcula quantas celulas falta pra completar o bloco considerando o mAtual e o nAtual
             if(estado_dado[i][j] == 1) {
+
+                // verifica se ja passou do numero de vivos, se proximo estado for 1
+                if(qtde_vizinhos[i][j] > 3)
+                    return 0;
+
                 int linha_final = i+1;
                 int coluna_final = j+1;
                 int nL = 3;
@@ -296,7 +292,7 @@ bool heuristicaVivosProporcional(uint8_t **estado_anterior, uint8_t **estado_dad
 void progride(uint8_t **estado_anterior, uint8_t **estado_dado, uint8_t **qtde_vizinhos, int m, int n, int mAtual, int nAtual, int vivos_atual) {
     nosExplorados++;
 
-    if(nosExplorados >= 1000000000) { // faz ele ser proporcional ao tam do tabuleiro
+    if(nosExplorados >= 1500000000) { // faz ele ser proporcional ao tam do tabuleiro
         return;
     }
     
@@ -346,6 +342,15 @@ void progride(uint8_t **estado_anterior, uint8_t **estado_dado, uint8_t **qtde_v
 
     int prioridade[2] = {0, 1};
 
+    if((estado_dado[mAtual][nAtual] == 1 && (qtde_vizinhos[mAtual][nAtual] == 2 || qtde_vizinhos[mAtual][nAtual] == 3))  
+    || (estado_dado[mAtual][nAtual] == 0 && qtde_vizinhos[mAtual][nAtual] == 3)) {
+        prioridade[0] = 1;
+        prioridade[1] = 0;
+    }else{
+        prioridade[0] = 0;
+        prioridade[1] = 1;
+    }
+
     int vivos = vivos_atual;
 
     // implementa fila de prioridade
@@ -357,7 +362,6 @@ void progride(uint8_t **estado_anterior, uint8_t **estado_dado, uint8_t **qtde_v
         }
 
         if (ehVizinhosPossivel(estado_anterior, estado_dado, qtde_vizinhos, m, n, mAtual, nAtual) == 1) {
-            // pula celulas mortas sem vizinhos vivos
             progride(estado_anterior, estado_dado, qtde_vizinhos, m, n, prox_m, prox_n, vivos);
         }
 
